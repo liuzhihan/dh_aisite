@@ -3,50 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="大瀚 AI 工作室：为创作者与企业提供一站式 AI 创意与技术服务。">
-  <meta property="og:title" content="大瀚 AI 工作室">
-  <meta property="og:description" content="把你的想法，变成可用的 AI 内容、工具与工作流。">
+  <meta name="description" content="大瀚的AI私坊：提交你问题，让我用AI快速为你解决，为你节省一切！">
+  <meta property="og:title" content="大瀚的AI私坊">
+  <meta property="og:description" content="受予、授鱼、授渔。为创作者与企业提供 AI 实践服务。">
   <meta property="og:type" content="website">
-  <title>大瀚 AI 工作室｜AI 创意与技术服务</title>
+  <title>大瀚的AI私坊｜受予、授鱼、授渔</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="大瀚 AI 工作室首页"><span class="brand-mark">大</span><span>大瀚 AI 工作室</span></a>
+      <a class="brand" href="index.html" aria-label="大瀚的AI私坊首页"><img class="brand-logo" src="assets/logo.png" alt=""><span>大瀚的AI私坊</span></a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="index.html" aria-current="page">首页</a><a href="about.html">关于大瀚</a><a href="services.html">服务</a><a href="works.html">作品</a><a href="lab.html">实验室</a><a href="contact.html">联系</a>
+        <a href="index.html" aria-current="page">首页</a><a href="services.html">服务项目</a><a href="mymedia.html">媒体频道</a><a href="about.html">关于大瀚</a><a href="register.html">注册</a><a href="login.html">登录</a>
       </nav>
-      <div class="nav-actions"><a class="button button-primary" href="contact.html">聊聊你的 AI 想法 <span class="arrow">↗</span></a><button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><span></span><span></span></button></div>
+      <div class="nav-actions"><button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><span></span><span></span></button></div>
     </div>
   </header>
+
   <main id="main">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">AI CREATIVE STUDIO · 01</p>
-          <h1>大瀚<span>AI 工作室</span></h1>
-          <p class="hero-lead">把你的想法，变成可用的 AI 内容、工具与工作流。</p>
+    <section class="home-hero">
+      <div class="container home-hero-grid">
+        <div class="home-hero-copy reveal">
+          <h1>AI私房菜</h1>
+          <p class="service-motto">受予、授鱼、授渔</p>
+          <p class="hero-lead">提交你问题，让我用AI快速为你解决，为你节省一切！</p>
           <p class="hero-copy">技术是底座，审美是方向，真实交付是答案。为创作者与企业提供从信息整理到内容生产、应用开发的 AI 实践服务。</p>
-          <div class="hero-actions"><a class="button button-primary" href="contact.html">聊聊你的 AI 想法 <span class="arrow">↗</span></a><a class="button button-secondary" href="works.html">看看实验作品 <span class="arrow">→</span></a></div>
-          <p class="hero-note">北京邮电大学计算机背景 · AI 实践者与工作室主理人</p>
+          <div class="hero-actions"><a class="button button-primary" href="#problem-form">提交一个你想解决的问题 <span class="arrow">↗</span></a><a class="button button-secondary" href="#tasks">查看我的任务 <span class="arrow">↓</span></a></div>
         </div>
-        <div class="hero-art reveal" aria-label="人与 AI 共创的抽象品牌视觉" role="img"><div class="art-stage"><div class="art-orbit"></div><div class="art-person"></div><div class="art-line"></div><div class="art-label">HUMAN × AI / 2026</div></div></div>
+        <div class="home-hero-art reveal">
+          <div class="hero-image-frame"><img src="assets/ai-workflow-hero.svg" alt="从想法经过 AI 内容、工具与工作流，连接到真实交付的科技感视觉图"></div>
+          <div class="hero-float-card hero-float-card-top"><span class="status-dot"></span><span>IDEA → USEFUL OUTPUT</span></div>
+          <div class="hero-float-card hero-float-card-bottom"><strong>REAL DELIVERY</strong><span>内容 · 工具 · 工作流</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="about-preview"><div class="container about-grid"><div class="about-copy reveal"><p class="kicker">About Dahan</p><h2>让 AI 真正成为个人与小团队的生产力。</h2><p>我是大瀚，一名从计算机技术出发、持续探索 AI 内容与工作流的实践者。写代码，也做视觉；研究模型，也关心一个作品能否真正被使用。</p><a class="text-link" href="about.html">了解大瀚 <span class="arrow">→</span></a></div><div class="capability-list reveal"><article class="capability"><span class="capability-no">01 / TECH</span><h3>技术与自动化</h3><p>Python、PHP、HTML、数据库，以及 AI Agent 与 API 调用。</p></article><article class="capability"><span class="capability-no">02 / CONTENT</span><h3>内容与视觉</h3><p>AI 生图、生视频、文案、音乐、剪辑与持续内容生产。</p></article><article class="capability"><span class="capability-no">03 / AESTHETIC</span><h3>审美与表达</h3><p>书法、音乐、吉他弹唱与对画面、节奏、叙事的长期训练。</p></article><article class="capability"><span class="capability-no">04 / PRACTICE</span><h3>从想法到交付</h3><p>把模糊需求拆成可执行流程，交付可用的内容、工具和结果。</p></article></div></div></section>
+    <section class="principle-strip section-muted">
+      <div class="container principle-grid">
+        <article class="principle-card reveal"><span>01 / 受予</span><h2>先理解你的问题</h2><p>从真实目标、限制条件和使用场景开始，而不是先堆工具。</p></article>
+        <article class="principle-card reveal"><span>02 / 授鱼</span><h2>直接交付可用结果</h2><p>把信息、内容、应用或流程做出来，帮助你马上推进下一步。</p></article>
+        <article class="principle-card reveal"><span>03 / 授渔</span><h2>留下可以复用的方法</h2><p>让一次解决不止解决一次，把经验沉淀成你自己的能力。</p></article>
+      </div>
+    </section>
 
-    <section class="section section-muted"><div class="container"><div class="section-head reveal"><div><p class="kicker">What I can do</p><h2>四种方式，<br>把 AI 用起来。</h2></div><a class="text-link" href="services.html">查看完整服务 <span class="arrow">→</span></a></div><div class="grid-4"><article class="service-card reveal"><div><span class="service-number">01</span><h3>信息搜索与整理</h3><p>从大量信息中找到重点，形成清晰、可复用的结论。</p></div><ul><li>资料搜集与综述</li><li>行业信息整理</li><li>知识库与报告</li></ul></article><article class="service-card reveal"><div><span class="service-number">02</span><h3>高效办公</h3><p>把重复、繁琐、批量的工作变成稳定的流程。</p></div><ul><li>数据处理与清洗</li><li>批量改图与格式转换</li><li>PPT 自动化设计</li></ul></article><article class="service-card reveal"><div><span class="service-number">03</span><h3>小应用开发</h3><p>从一个真实问题出发，做出轻量、好用的数字工具。</p></div><ul><li>网页工具与小程序</li><li>内部效率应用</li><li>AI Agent 原型</li></ul></article><article class="service-card reveal"><div><span class="service-number">04</span><h3>内容生产</h3><p>用 AI 放大创意，让内容从灵感走到发布。</p></div><ul><li>生图与生视频</li><li>文案、音乐与剪辑</li><li>自媒体内容包</li></ul></article></div></div></section>
+    <section class="section task-section" id="tasks">
+      <div class="container">
+        <div class="section-head reveal"><div><p class="kicker">My task list</p><h2>我的任务清单</h2><p class="section-intro">这里记录你曾经提交过、正在推进中的 AI 问题。</p></div><div class="task-auth-summary" data-auth-summary></div></div>
+        <div class="auth-gate reveal" data-auth-gate hidden><div><strong>登录后查看你的任务清单</strong><p>每个问题都会绑定到你的账号，只有你和大瀚可以看到详情。</p></div><a class="button button-primary" href="login.html">登录 / 注册 <span class="arrow">↗</span></a></div>
+        <div class="task-panel reveal" data-task-panel hidden>
+          <div class="task-status-legend"><span><i class="task-status-dot status-new"></i>新问题</span><span><i class="task-status-dot status-working"></i>正在解决中</span><span><i class="task-status-dot status-done"></i>已解决</span></div>
+          <div class="task-loading" data-task-loading>正在加载你的任务清单…</div>
+          <div class="task-error" data-task-error role="alert" hidden></div>
+          <div class="task-empty" data-task-empty hidden><strong>还没有提交过任务</strong><span>把第一个需要 AI 帮你解决的问题写下来吧。</span></div>
+          <div class="task-list" data-task-list></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="section"><div class="container"><div class="section-head reveal"><div><p class="kicker">Selected Experiments</p><h2>精选实验作品</h2></div><a class="text-link" href="works.html">查看全部作品 <span class="arrow">→</span></a></div><div class="grid-4"><article class="work-card reveal"><div class="work-visual visual-1"></div><div class="work-content"><div class="work-meta"><span class="work-tag">内容创作</span><span>概念 01</span></div><h3>创忆单词</h3><p>AI 图像与语音驱动的单词记忆卡片。</p></div></article><article class="work-card reveal"><div class="work-visual visual-2"></div><div class="work-content"><div class="work-meta"><span class="work-tag">内容创作</span><span>概念 02</span></div><h3>我在惠州玩 AI</h3><p>用 AI 重新观看一座城市的人文风景。</p></div></article><article class="work-card reveal"><div class="work-visual visual-3"></div><div class="work-content"><div class="work-meta"><span class="work-tag">内容创作</span><span>概念 03</span></div><h3>大瀚 space</h3><p>记录个人 AI 创作与视觉实验。</p></div></article><article class="work-card reveal"><div class="work-visual visual-4"></div><div class="work-content"><div class="work-meta"><span class="work-tag">内容创作</span><span>概念 04</span></div><h3>运筹为我</h3><p>探索 AI 时代的沟通与交际方法。</p></div></article></div></div></section>
+    <section class="section section-dark problem-section" id="problem-form">
+      <div class="container problem-grid">
+        <div class="problem-intro reveal"><p class="kicker">Start with a problem</p><h2>把需要解决的事，交给 AI。</h2><p>不用先把需求说得完美。告诉我你遇到了什么、希望得到什么结果，我会从问题本身开始判断最合适的做法。</p><div class="problem-points"><span>内容生产</span><span>信息整理</span><span>应用开发</span><span>工作流设计</span></div></div>
+        <div class="problem-form-card reveal">
+          <form id="problem-form-element" data-problem-form enctype="multipart/form-data">
+            <div class="form-heading"><p class="kicker">New task</p><h3>提交一个需要解决的问题</h3></div>
+            <label class="field"><span>问题 <em>*</em></span><textarea name="question" rows="4" required placeholder="你现在遇到了什么问题？"></textarea></label>
+            <label class="field"><span>目的 <em>*</em></span><textarea name="purpose" rows="3" required placeholder="希望最终得到什么结果？"></textarea></label>
+            <label class="field"><span>附件</span><input name="attachments" type="file" multiple accept=".txt,.doc,.docx,.pdf,.xls,.xlsx"><small>支持 TXT、DOC、DOCX、PDF、XLS、XLSX；单个文件不超过 10MB，最多 5 个。</small></label>
+            <div class="selected-files" data-selected-files></div>
+            <label class="field"><span>其他</span><textarea name="other" rows="2" placeholder="补充时间、预算或其他信息（可选）"></textarea></label>
+            <div class="form-feedback" data-form-feedback role="status" hidden></div>
+            <button class="button button-primary form-submit" type="submit"><span>提交问题</span><span class="arrow">↗</span></button>
+            <a class="form-submit-hint" data-submit-hint href="register.html" hidden>快速注册、快速提交 <span class="arrow">↗</span></a>
+          </form>
+        </div>
+      </div>
+    </section>
 
-    <section class="section section-dark"><div class="container"><div class="section-head reveal"><div><p class="kicker">Personal Lab</p><h2>持续实验，<br>持续靠近答案。</h2></div><a class="text-link" href="lab.html" style="color:#8db8ff">进入实验室 <span class="arrow">→</span></a></div><div class="lab-grid"><article class="lab-card reveal"><div class="lab-icon">词</div><div><h3>创忆单词</h3><p>AI 记忆卡片 · 已在运营</p></div></article><article class="lab-card reveal"><div class="lab-icon">惠</div><div><h3>我在惠州玩 AI</h3><p>城市内容 · 已在运营</p></div></article><article class="lab-card reveal"><div class="lab-icon">大</div><div><h3>大瀚 space</h3><p>个人作品 · 已在运营</p></div></article><article class="lab-card reveal"><div class="lab-icon">运</div><div><h3>运筹为我</h3><p>沟通方法 · 筹备中</p></div></article></div></div></section>
-
-    <section class="section"><div class="container"><div class="cta-panel reveal"><div><p class="kicker">Start a conversation</p><h2>你有一个想法，或者一项重复的工作？</h2><p>把问题发给我，我们一起看看 AI 能不能让它变得更清楚、更快、更好。</p></div><a class="button button-primary" href="contact.html">聊聊你的 AI 想法 <span class="arrow">↗</span></a></div></div></section>
+    <section class="section"><div class="container"><div class="cta-panel reveal"><div><p class="kicker">Keep moving</p><h2>技术是底座，审美是方向，真实交付是答案。</h2><p>从一个具体问题开始，让 AI 进入真正的工作现场。</p></div><a class="button button-primary" href="#problem-form">提交一个你想解决的问题 <span class="arrow">↗</span></a></div></div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><span class="footer-brand">大瀚 AI 工作室</span><span>© 2026 大瀚 · AI 创意与技术实践</span><a href="contact.html">合作联系 ↗</a></div></footer>
+
+  <footer class="site-footer"><div class="container footer-inner"><span class="footer-brand">大瀚的AI私坊</span><span>© 2026 大瀚 · AI 私坊</span><a href="contact.html">合作联系 ↗</a></div></footer>
   <script src="js/app.js" defer></script>
 </body>
 </html>
