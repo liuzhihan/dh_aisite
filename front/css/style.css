@@ -16,6 +16,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -44,6 +45,10 @@ img, svg { display: block; max-width: 100%; }
 .nav-links a { transition: color .2s ease; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--ink); }
 .nav-actions { display: flex; align-items: center; gap: 10px; }
+.nav-auth { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.nav-user { max-width: 150px; overflow: hidden; color: var(--ink); font-size: 13px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.nav-logout { padding: 4px 0; border: 0; color: var(--blue-dark); background: transparent; font-size: 12px; font-weight: 700; cursor: pointer; }
+.nav-logout:hover { color: var(--blue); }
 .menu-toggle { display: none; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; color: var(--ink); background: var(--surface); cursor: pointer; }
 .menu-toggle span { width: 17px; height: 1.5px; display: block; margin: 4px auto; background: currentColor; }
 
@@ -245,8 +250,6 @@ main { overflow: hidden; }
 .principle-card h2 { margin: 19px 0 9px; font-size: clamp(23px, 2.4vw, 32px); letter-spacing: -.06em; }
 .principle-card p { margin: 0; color: var(--muted); font-size: 14px; }
 .task-section { background: #fbfcfe; }
-.task-auth-summary { color: var(--muted); font-size: 13px; text-align: right; }
-.task-auth-summary .auth-logout { margin-left: 8px; font-size: 12px; }
 .auth-gate { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; border: 1px solid #cfe0f4; border-radius: var(--radius-md); background: #eef6ff; }
 .auth-gate p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 .task-panel { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow); }
@@ -286,3 +289,29 @@ main { overflow: hidden; }
   .problem-form-card .field textarea { height: 82px; }
   .problem-form-card .field textarea[name="other"] { height: 62px; }
 }
+
+/* Branded file picker */
+.file-upload-control { position: relative; display: flex; align-items: center; min-height: 54px; overflow: hidden; border: 1px solid #d9dfe8; border-radius: 12px; background: #f8fbff; transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+.file-upload-control:focus-within { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(20,110,245,.12); }
+.file-upload-control input[type="file"] { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; padding: 0; border: 0; opacity: 0; cursor: pointer; }
+.file-upload-action { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; margin-left: 6px; padding: 0 15px; border-radius: 9px; color: #fff; background: linear-gradient(135deg, var(--blue), #5d8eff); box-shadow: 0 6px 16px rgba(20,110,245,.2); font-size: 13px; font-weight: 700; pointer-events: none; }
+.file-upload-action svg { width: 17px; height: 17px; }
+.file-upload-name { min-width: 0; overflow: hidden; padding: 0 13px; color: #7c899b; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.file-upload-control:hover { border-color: #9bbcf2; background: #fbfdff; }
+.file-field small { padding-left: 2px; }
+
+/* Bootstrap-inspired auth controls */
+.auth-card .field { margin-top: 18px; }
+.auth-card .field > span { margin-bottom: 8px; color: #344054; font-size: 13px; font-weight: 700; }
+.auth-card input:not([type="file"]) { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid #d5deea; border-radius: 11px; color: #1f2937; background: #f8fafc; box-shadow: inset 0 1px 2px rgba(16,24,40,.03); font: inherit; transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+.auth-card input:not([type="file"]):hover { border-color: #a9bfe1; background: #fff; }
+.auth-card input:not([type="file"]):focus { outline: 0; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(20,110,245,.12); }
+.auth-card input:not([type="file"])::placeholder { color: #98a2b3; }
+.auth-card input:not([type="file"]):user-invalid:not(:focus) { border-color: #e57373; box-shadow: 0 0 0 3px rgba(229,115,115,.1); }
+.auth-card .form-submit { color: #fff; background: var(--blue); }
+.auth-card .form-submit:hover { background: var(--blue-dark); }
+
+/* Keep the upload action vertically centered across browser controls and zoom levels. */
+.file-upload-control { gap: 6px; padding: 6px; }
+.file-upload-action { align-self: center; height: 42px; min-height: 42px; margin: 0; }
+.file-upload-name { display: flex; align-items: center; height: 42px; padding: 0 9px; }

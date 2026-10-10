@@ -9,10 +9,13 @@
     ['login.html', '登录', 'login']
   ];
 
-  function applySiteNav() {
+  function applySiteNav(user) {
     const nav = document.querySelector('.nav-links');
     if (!nav) return;
-    nav.innerHTML = navItems.map(function (item) {
+    const visibleItems = user ? navItems.filter(function (item) {
+      return item[2] !== 'register' && item[2] !== 'login';
+    }) : navItems;
+    nav.innerHTML = visibleItems.map(function (item) {
       return '<a href="' + item[0] + '"' + (page === item[2] ? ' aria-current="page"' : '') + '>' + item[1] + '</a>';
     }).join('');
     const brand = document.querySelector('.brand');
@@ -21,9 +24,26 @@
       const label = brand.querySelector('span:last-child');
       if (label) label.textContent = '大瀚的AI私坊';
     }
-    document.querySelectorAll('.nav-actions .button').forEach(function (button) {
-      button.remove();
-    });
+    const actions = document.querySelector('.nav-actions');
+    if (actions) {
+      actions.querySelectorAll(':scope > a.button').forEach(function (button) { button.remove(); });
+      let authBox = actions.querySelector('[data-nav-auth]');
+      if (!authBox) {
+        authBox = document.createElement('div');
+        authBox.className = 'nav-auth';
+        authBox.dataset.navAuth = '';
+        const toggle = actions.querySelector('.menu-toggle');
+        actions.insertBefore(authBox, toggle || null);
+      }
+      if (user) {
+        const displayName = user.displayName || user.username || user.email;
+        authBox.innerHTML = '<span class="nav-user" title="当前登录账号">' + escapeHtml(displayName) + '</span><button class="nav-logout" type="button" data-nav-logout>退出</button>';
+        const logout = authBox.querySelector('[data-nav-logout]');
+        if (logout) logout.addEventListener('click', function () { performLogout(logout); });
+      } else {
+        authBox.innerHTML = '';
+      }
+    }
     document.querySelectorAll('.footer-brand').forEach(function (footerBrand) {
       footerBrand.textContent = '大瀚的AI私坊';
     });
@@ -75,6 +95,16 @@
       throw err;
     }
     return payload;
+  }
+
+  async function performLogout(button) {
+    if (button) button.disabled = true;
+    try {
+      await requestJson('/api/auth/logout', { method: 'POST' });
+      window.location.replace('index.html');
+    } catch (error) {
+      if (button) button.disabled = false;
+    }
   }
 
   function formatDate(value) {
@@ -132,22 +162,12 @@
     const form = document.querySelector('[data-problem-form]');
     const submit = form && form.querySelector('button[type="submit"]');
     const submitHint = form && form.querySelector('[data-submit-hint]');
-    const summary = document.querySelector('[data-auth-summary]');
     if (user) {
       if (gate) gate.hidden = true;
       if (panel) panel.hidden = false;
       if (form) form.hidden = false;
       if (submit) submit.disabled = false;
       if (submitHint) submitHint.hidden = true;
-      if (summary) {
-        summary.innerHTML = '已登录：' + escapeHtml(user.displayName || user.username || user.email) + ' <button class="button-link auth-logout" type="button" data-logout>退出</button>';
-        const logout = summary.querySelector('[data-logout]');
-        if (logout) logout.addEventListener('click', async function () {
-          logout.disabled = true;
-          try { await requestJson('/api/auth/logout', { method: 'POST' }); window.location.reload(); }
-          catch (error) { logout.disabled = false; }
-        });
-      }
       loadTasks();
     } else {
       if (gate) gate.hidden = false;
@@ -155,7 +175,6 @@
       if (form) form.hidden = false;
       if (submit) submit.disabled = true;
       if (submitHint) submitHint.hidden = false;
-      if (summary) summary.textContent = '登录后可查看';
     }
   }
 
@@ -171,6 +190,8 @@
     let selectedFiles = [];
     function renderFiles() {
       if (!filesBox) return;
+      const fileName = document.querySelector('[data-file-name]');
+      if (fileName) fileName.textContent = selectedFiles.length ? selectedFiles.map(function (file) { return file.name; }).join('、') : '未选择文件';
       filesBox.innerHTML = selectedFiles.map(function (file, index) {
         return '<div class="selected-file"><span>' + escapeHtml(file.name) + ' · ' + Math.ceil(file.size / 1024) + 'KB</span><button type="button" data-remove-file="' + index + '">移除</button></div>';
       }).join('');
@@ -228,16 +249,19 @@
         const mode = form.dataset.authMode;
         const body = Object.fromEntries(new FormData(form).entries());
         await requestJson('/api/auth/' + mode, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        window.location.href = 'index.html#tasks';
+        // Registration and login both create the session cookie. Return to the
+        // home page so the shared navigation can immediately render the user.
+        window.location.replace('index.html#tasks');
       } catch (error) {
         if (feedback) { feedback.textContent = error.message; feedback.hidden = false; feedback.classList.remove('success'); }
       } finally { if (button) button.disabled = false; }
     });
   }
 
-  function boot() {
-    applySiteNav(); setupMenu(); setupReveal(); setupAuthForm();
-    if (page === 'home') getCurrentUser().then(function (user) { setAuthView(user); setupProblemForm(user); });
+  async function boot() {
+    const user = await getCurrentUser();
+    applySiteNav(user); setupMenu(); setupReveal(); setupAuthForm();
+    if (page === 'home') { setAuthView(user); setupProblemForm(user); }
   }
   boot();
 })();

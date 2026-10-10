@@ -50,7 +50,7 @@
 
     <section class="section task-section" id="tasks">
       <div class="container">
-        <div class="section-head reveal"><div><p class="kicker">My task list</p><h2>我的任务清单</h2><p class="section-intro">这里记录你曾经提交过、正在推进中的 AI 问题。</p></div><div class="task-auth-summary" data-auth-summary></div></div>
+        <div class="section-head reveal"><div><p class="kicker">My task list</p><h2>我的任务清单</h2><p class="section-intro">这里记录你曾经提交过、正在推进中的 AI 问题。</p></div></div>
         <div class="auth-gate reveal" data-auth-gate hidden><div><strong>登录后查看你的任务清单</strong><p>每个问题都会绑定到你的账号，只有你和大瀚可以看到详情。</p></div><a class="button button-primary" href="login.html">登录 / 注册 <span class="arrow">↗</span></a></div>
         <div class="task-panel reveal" data-task-panel hidden>
           <div class="task-status-legend"><span><i class="task-status-dot status-new"></i>新问题</span><span><i class="task-status-dot status-working"></i>正在解决中</span><span><i class="task-status-dot status-done"></i>已解决</span></div>
@@ -70,7 +70,7 @@
             <div class="form-heading"><p class="kicker">New task</p><h3>提交一个需要解决的问题</h3></div>
             <label class="field"><span>问题 <em>*</em></span><textarea name="question" rows="4" required placeholder="你现在遇到了什么问题？"></textarea></label>
             <label class="field"><span>目的 <em>*</em></span><textarea name="purpose" rows="3" required placeholder="希望最终得到什么结果？"></textarea></label>
-            <label class="field"><span>附件</span><input name="attachments" type="file" multiple accept=".txt,.doc,.docx,.pdf,.xls,.xlsx"><small>支持 TXT、DOC、DOCX、PDF、XLS、XLSX；单个文件不超过 10MB，最多 5 个。</small></label>
+            <label class="field file-field"><span>附件</span><span class="file-upload-control"><input name="attachments" type="file" multiple accept=".txt,.doc,.docx,.pdf,.xls,.xlsx" aria-label="选择附件"><span class="file-upload-action" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>选择文件</span><span class="file-upload-name" data-file-name>未选择文件</span></span><small>支持 TXT、DOC、DOCX、PDF、XLS、XLSX；单个文件不超过 10MB，最多 5 个。</small></label>
             <div class="selected-files" data-selected-files></div>
             <label class="field"><span>其他</span><textarea name="other" rows="2" placeholder="补充时间、预算或其他信息（可选）"></textarea></label>
             <div class="form-feedback" data-form-feedback role="status" hidden></div>
@@ -81,7 +81,6 @@
       </div>
     </section>
 
-    <section class="section"><div class="container"><div class="cta-panel reveal"><div><p class="kicker">Keep moving</p><h2>技术是底座，审美是方向，真实交付是答案。</h2><p>从一个具体问题开始，让 AI 进入真正的工作现场。</p></div><a class="button button-primary" href="#problem-form">提交一个你想解决的问题 <span class="arrow">↗</span></a></div></div></section>
   </main>
 
   <footer class="site-footer"><div class="container footer-inner"><span class="footer-brand">大瀚的AI私坊</span><span>© 2026 大瀚 · AI 私坊</span><a href="contact.html">合作联系 ↗</a></div></footer>
