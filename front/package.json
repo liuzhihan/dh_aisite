@@ -1,9 +1,19 @@
 {
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",
     "busboy": "^1.6.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6",
+    "vercel": "^63.1.2"
+  },
+  "scripts": {
+    "dev": "serve -l 3000 .",
+    "dev:api": "echo \"⚠️ 表单/登录等 API 功能需要 vercel dev，先运行 npm i -g vercel && cd .. && vercel login && vercel dev\""
   }
 }
